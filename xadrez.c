@@ -1,32 +1,92 @@
 #include <stdio.h>
 
-// Desafio de Xadrez - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
-// O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
+void movimentoTorre (){
+    //Estrutura de repetição for para simular movimento da Torre 5 casas para a direita
 
-int main() {
-    // Nível Novato - Movimentação das Peças
-    // Sugestão: Declare variáveis constantes para representar o número de casas que cada peça pode se mover.
+    for (int i = 1; i <=5; i++) {
+        printf("\nTorre movendo para a Direita");
+    }
+    printf("\n\n");
+}
 
-    // Implementação de Movimentação do Bispo
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação do Bispo em diagonal.
+void movimentoRainha(){
+    
+    //Estrutura de repetição do-while para simular movimento da rainha 8 casas para a esquerda
+    
+    int i=1;
 
-    // Implementação de Movimentação da Torre
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Torre para a direita.
+    do{
+        printf("\nRainha movendo para a Esquerda");
+        i++;
+    }while(i <= 8);
 
-    // Implementação de Movimentação da Rainha
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Rainha para a esquerda.
+    printf("\n\n");
 
-    // Nível Aventureiro - Movimentação do Cavalo
-    // Sugestão: Utilize loops aninhados para simular a movimentação do Cavalo em L.
-    // Um loop pode representar a movimentação horizontal e outro vertical.
+}
 
-    // Nível Mestre - Funções Recursivas e Loops Aninhados
-    // Sugestão: Substitua as movimentações das peças por funções recursivas.
-    // Exemplo: Crie uma função recursiva para o movimento do Bispo.
+void movimentoBispo(){
+    
+    //Estrutura de repetição while para simular movimento do bispo 5 casa para cima, direita (diagonal)
+    int b = 1;
 
-    // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
-    // Inclua o uso de continue e break dentro dos loops.
+    while(b <= 5){
+        printf("\nBispo movendo para cima, direita");
+        b++;
+    }
+    printf("\n\n");
+}
+
+void movimentoBispoMelhorado(){
+    for(int i = 0; i <=5; i++){
+        //movimento vertical, cima
+        printf("\nBispo para cima");
+
+        for(int b = 0; b<=5; b++){
+            //movimento horizontal, direita
+            printf("\nBispo para direita");
+            break; //sai do laço
+        }
+    }
+    printf("\n\n");
+}
+
+void movimentoCavalo(){
+
+    //Estrutura aninhada com for e while para simular o movimento do cavalo
+    for(int i=1; i <=2; i++){
+        printf("\nCavalo movimentando para cima");
+
+        if(i==2){ //nessa estrutura em particular tive que usar o if para que ele não fizesse as duas estruturas ao mesmo tempo, o movimento do cavalo é em "L" sendo duas para cima e uma para o lado, sem o if ele estava atropelando e indo para o segundo laço sem terminar o primeiro, acabava ficando um movimento divergente da peça.
+            int c = 1;
+            while(c <=1){
+            printf("\nCavalo movimentando para a direita");
+            c++;
+            }
+        }
+        
+    }
+}
+
+void movimentoCavaloMelhorado(){
+    //fica no laço até que i seja menor ou igual a 2 OU c seja menor ou igual a 1
+    for(int i = 1, c = 1; i<=2 || c<=1; i++, c++){
+        printf("\nCavalo movimentando para cima");
+
+        if(i==2){
+            //Quando terminar o laço i será igual a 2, assim que for igual a 2 roda essa linha
+            printf("\nCavalo movimentando para a direita");
+        }
+    }
+}
+
+int main (){
+    //Chamada das funções
+    //Recursividade
+
+    movimentoTorre();
+    movimentoBispoMelhorado();
+    movimentoRainha();
+    movimentoCavaloMelhorado();
 
     return 0;
-}
+}   
